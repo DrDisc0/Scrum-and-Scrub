@@ -1,0 +1,132 @@
+import java.io.*;
+import java.util.*;
+
+public class App {
+    private static final String FILE_PATH = "users.txt";
+    private static Map<String, String> users = new HashMap<>();
+    private static boolean isLoggedIn = false;
+    private static String currentUser = null;
+    private static Map<String, String> otps = new HashMap<>();
+    private static final Random RANDOM = new Random();
+
+    public static void main(String[] args) throws IOException {
+        loadUsers();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("1. Register 2. Login 3. Forget Password 4. Logout 5. Exit");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+            switch (choice) {
+                case 1 -> {
+                    if (!isLoggedIn) {
+                        register(scanner);
+                    } else {
+                        System.out.println("You are already logged in.");
+                    }
+                }
+                case 2 -> {
+                    if (!isLoggedIn) {
+                        login(scanner);
+                    } else {
+                        System.out.println("You are already logged in.");
+                    }
+                }
+                case 3 -> forgetPassword(scanner);
+                case 4 -> {
+                    if (isLoggedIn) {
+                        logout();
+                    } else {
+                        System.out.println("You are not logged in.");
+                    }
+                }
+                case 5 -> {
+                    saveUsers();
+                    System.exit(0);
+                }
+                default -> System.out.println("Invalid choice.");
+            }
+        }
+    }
+
+    private static void register(Scanner scanner) {
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+        users.put(username, password);
+        System.out.println("User registered successfully.");
+    }
+
+    private static void login(Scanner scanner) {
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+
+        if (users.containsKey(username) && users.get(username).equals(password)) {
+            // Generate OTP and send (here, just print it)
+            String otp = generateOTP();
+            otps.put(username, otp);
+            System.out.println("OTP sent to your registered email: " + otp); // Simulate sending OTP
+
+            System.out.print("Enter OTP: ");
+            String enteredOtp = scanner.nextLine();
+
+            if (otp.equals(enteredOtp)) {
+                isLoggedIn = true;
+                currentUser = username;
+                System.out.println("Login successful.");
+            } else {
+                System.out.println("Invalid OTP.");
+            }
+        } else {
+            System.out.println("Invalid username or password.");
+        }
+    }
+
+    private static void forgetPassword(Scanner scanner) {
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        if (users.containsKey(username)) {
+            System.out.print("Enter new password: ");
+            String newPassword = scanner.nextLine();
+            users.put(username, newPassword);
+            System.out.println("Password reset successful.");
+        } else {
+            System.out.println("Username not found.");
+        }
+    }
+
+    private static void logout() {
+        isLoggedIn = false;
+        currentUser = null;
+        System.out.println("Logged out.");
+    }
+
+    private static void loadUsers() throws IOException {
+        File file = new File(FILE_PATH);
+        if (file.exists()) {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(":");
+                users.put(parts[0], parts[1]);
+            }
+            reader.close();
+        }
+    }
+
+    private static void saveUsers() throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH));
+        for (Map.Entry<String, String> entry : users.entrySet()) {
+            writer.write(entry.getKey() + ":" + entry.getValue());
+            writer.newLine();
+        }
+        writer.close();
+    }
+
+    private static String generateOTP() {
+        int otp = 100000 + RANDOM.nextInt(900000);
+        return String.valueOf(otp);
+    }
+}
