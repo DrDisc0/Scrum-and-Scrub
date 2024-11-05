@@ -1,0 +1,57 @@
+<!-- sign-up.component.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProFile - Sign Up</title>
+    <link rel="stylesheet" href="sign-up.component.css" />
+</head>
+<body>
+    <header>
+        <h1>Sign Up for ProFile</h1>
+    </header>
+
+    <main>
+        <section class="signup-section">
+            <div class="container">
+    <form>
+        <h2>Create Account</h2>
+        <div class="form-group">
+            <input type="text" placeholder="Full Name" required />
+        </div>
+        <div class="form-group">
+            <input type="email" placeholder="Email" required />
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password" required />
+        </div>
+        <button type="submit">Sign Up</button>
+        <div class="footer">
+            <p>&copy; 2024 ProFile Application. All rights reserved.</p>
+        </div>
+    </form>
+</div>
+
+            <p>
+                Already have an account?
+                <a href="../sign-in/sign-in.component.html">Login here</a>.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ProFile. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            // Simulate a successful sign-up
+            alert('Sign-up successful! You can now log in.');
+            window.location.href = '/src/app/sign-in/sign-in.component.html'; // Redirect to login page
+        });
+    </script>
+</body>
+</html>

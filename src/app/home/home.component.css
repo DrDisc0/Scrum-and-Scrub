@@ -1,0 +1,65 @@
+/* home.component.css - Enhanced Styling for Home Page */
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Light background for better contrast */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background: #007bff; /* Primary color for header */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Main section styles */
+main {
+    padding: 20px;
+}
+
+/* Dashboard section styles */
+.dashboard {
+    max-width: 800px; /* Limit the width for better readability */
+    margin: auto; /* Center the section */
+    background: white;
+    padding: 30px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+}
+
+/* Button container styles */
+.button-container {
+    display: flex;
+    justify-content: space-around; /* Evenly space the buttons */
+    margin-top: 20px;
+}
+
+/* Button styles */
+.action-button {
+    padding: 15px 30px; /* More padding for buttons */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    font-size: 16px; /* Slightly larger font */
+}
+
+.action-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    background: #e9ecef; /* Light footer background */
+}

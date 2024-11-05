@@ -1,0 +1,53 @@
+/* export.component.css - Styling for Export Page */
+
+/* Export section styling */
+section {
+    max-width: 600px; /* Limit the width for better readability */
+    margin: auto; /* Center the section */
+    background: white; /* White background for the section */
+    padding: 30px; /* Padding around the section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+    text-align: center; /* Center-align text */
+}
+
+/* Heading styles */
+h2 {
+    color: #333; /* Dark text color for headings */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+/* Paragraph styles */
+p {
+    margin-bottom: 20px; /* Space below paragraph */
+}
+
+/* Button styles */
+.export-options {
+    display: flex;
+    justify-content: center; /* Center buttons */
+    gap: 20px; /* Space between buttons */
+}
+
+button {
+    padding: 15px 30px; /* More padding for buttons */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    font-size: 16px; /* Slightly larger font */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+/* Status message styles */
+#export-status {
+    margin-top: 20px; /* Space above status message */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Dark color for visibility */
+}

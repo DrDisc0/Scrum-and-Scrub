@@ -1,0 +1,84 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9; /* Light background for contrast */
+  margin: 0;
+  padding: 0;
+}
+
+/* Full-Height Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+}
+
+/* Form Styling */
+form {
+  width: 100%;
+  max-width: 400px; /* Limit width */
+  background-color: #ffffff;
+  padding: 30px; /* Increased padding for better spacing */
+  border-radius: 10px; /* Softer corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+}
+
+/* Header */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px; /* Space below heading */
+}
+
+/* Input Fields */
+.form-group {
+  margin-bottom: 15px; /* Space between fields */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center items horizontally */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%; /* Full width */
+  max-width: 100%; /* Ensure it doesn't exceed the container */
+  padding: 15px; /* Increased padding for comfort */
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Softer corners */
+  transition: border 0.3s; /* Smooth transition for border color */
+  box-sizing: border-box; /* Include padding in width calculations */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff; /* Highlight on focus */
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff; /* Primary color */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Softer corners */
+  cursor: pointer;
+  font-size: 16px; /* Larger font size */
+  transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 20px; /* Space above footer */
+  color: #777;
+  font-size: 14px; /* Smaller font for footer */
+}

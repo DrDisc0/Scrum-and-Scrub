@@ -1,1 +1,44 @@
-<p>export works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProFile - Export Resume</title>
+    <link rel="stylesheet" href="export.component.css" /> <!-- Link to your specific CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Export Your Resume</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Choose an Export Format</h2>
+            <p>Select the format you want to export your resume to:</p>
+            <div class="export-options">
+                <button id="export-pdf">Export as PDF</button>
+                <button id="export-docx">Export as Word Document</button>
+            </div>
+            <p id="export-status"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ProFile. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("export-pdf").addEventListener("click", function () {
+            document.getElementById("export-status").innerText =
+                "Exporting your resume as PDF...";
+            // Logic to handle PDF export
+        });
+
+        document.getElementById("export-docx").addEventListener("click", function () {
+            document.getElementById("export-status").innerText =
+                "Exporting your resume as Word Document...";
+            // Logic to handle Word document export
+        });
+    </script>
+</body>
+</html>

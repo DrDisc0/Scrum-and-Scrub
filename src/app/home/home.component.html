@@ -1,1 +1,42 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProFile - Home</title>
+    <link rel="stylesheet" href="home.component.css" />
+    <!-- Link to your CSS file -->
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to ProFile!</h1>
+    </header>
+
+    <main>
+      <section class="dashboard">
+        <h2>Your Custom Resume Dashboard</h2>
+        <p>
+          Manage your resume, export it, or create a new portfolio with ease.
+        </p>
+        <div class="button-container">
+          <button
+            class="action-button"
+            onclick="window.location.href='../import/export/export.component.html'"
+          >
+            Export Resume
+          </button>
+          <button
+            class="action-button"
+            onclick="window.location.href='../portfolio-creation/portfolio-creation-component.component.html'"
+          >
+            Create Portfolio
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 ProFile. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

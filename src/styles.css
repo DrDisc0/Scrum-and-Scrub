@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css - Global Styling for Index Page */
+
+/* Basic CSS reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4; /* Light background for better contrast */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header styles */
+header {
+  background: #007bff; /* Primary color for header */
+  color: white;
+  padding: 30px 0; /* Increased padding for a more spacious look */
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Main section styles */
+main {
+  padding: 20px;
+}
+
+/* Landing section styles */
+.landing-section {
+  max-width: 600px; /* Limit the width for better readability */
+  margin: auto; /* Center the section */
+  background: white;
+  padding: 30px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+  text-align: center; /* Center align text */
+}
+
+/* Button container styles */
+.button-container {
+  display: flex;
+  justify-content: space-around; /* Evenly space the buttons */
+  margin-top: 20px;
+}
+
+/* Button styles */
+button {
+  padding: 15px 30px; /* More padding for buttons */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  font-size: 16px; /* Slightly larger font */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0;
+  background: #e9ecef; /* Light footer background */
+}
