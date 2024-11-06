@@ -1,5 +1,6 @@
 import mysql from 'mysql2/promise';
 import sequel from 'sequelize';
+import { DataTypes } from 'sequelize';
 import dotenv from '@dotenvx/dotenvx';
 dotenv.config();
 
@@ -24,25 +25,40 @@ try {
   console.error('Unable to connect to the database:', error);
 }
 
-
-export async function getPersons(){
-    try {
-      
-     const [rows] = await sequel2.query('SELECT * FROM pro.person');
-      return rows;
-     /*const [rows] = await pool.query('SELECT * FROM pro.person');
-      if (rows) { // Check if rows exist
-        return rows;
-      } else {
-        console.error('No results found from query');
-        return []; // Return an empty array if no results
-      }*/
-    } catch (error) {
-      console.error('Error getting database:', error);
-      throw error; // Re-throw the error to handle it in the calling function   
+    const Person = sequel2.define('person',{
+      tableName:'person',
+      id:{
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      firstName:{
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      lastName:{
+        type: DataTypes.STRING,
+        allowNull:true
+      },
+      phoneNumber:{
+        type: DataTypes.STRING,
+        allowNull:true
+      },
+      age:{
+        type: DataTypes.INTEGER,
+        allowNull: true
+      },
   
+    });
+
+    try {
+      await sequel2.sync();
+      console.log('Tables synchronized successfully.');
+    } catch (error) {
+      console.error('Error synchronizing tables:', error);
     }
-  }
+    
+
   export async function getPerson (id){
       try {const [rows] = await sequel2.query('SELECT * FROM pro.person WHERE Numid = ?', [id]);
       console.log[rows];
@@ -53,22 +69,21 @@ export async function getPersons(){
       }
     }
     
-    export async function createPerson (firstname, lastname, phonenum, email, focus, age){
-        try {
-            const [result] = await sequel2.getQueryInterface('INSERT INTO pro.person (first_name, last_name, phone_num, email, career_foc, age) VALUES(?, ?, ?, ?, ?, ?)', [firstname, lastname, phonenum, email, focus, age]);
-            const id = result.insertId;
-            console.log(id);
-            const person = await this.getPerson(id);
-            return person;
-        } catch (error) {
-            console.error('Error creating person:', error);
-            throw error; // Re-throw the error to handle it in the calling function   
-        
-          }
-    }
+    export async function createPerson(firstName, lastname, phoneNumber, email, focus, age) {
+      try {
+          const person = await Person.create({
+            firstName: firstName,
+            //lastName: lastname,
+            phonenum: phoneNumber,
+            age:age
+          })
+      } catch (error) {
+          console.error('Error creating person:', error);
+          throw error;
+      }
+  }
 
     export default{
-      getPersons,
       getPerson,
       createPerson
     }
