@@ -53,15 +53,9 @@ document.addEventListener('DOMContentLoaded', function(){
             }
 
             {
-                const name = document.querySelector('#name');
-                const nameDb = name.value;
-                name.value = "";
-                const age = document.querySelector('#age');
-                const ageDb = age.value;
-                age.value = "";
-                const contact = document.querySelector('#contact');//phone num
-                const contactDb = contact.value;
-                contact.value = "";
+                const name = document.getElementById('name').value || "N/A";
+                const age = document.getElementById('age').value || "N/A";
+                const phoneNumber = document.getElementById('contact').value || "N/A";
                 /*const background = document.querySelector('');
                 const focus = document.querySelector('');//career focus
                 const projects = document.querySelector('');//project
@@ -69,9 +63,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 */
         
                 const dataToSend = {
-                    phoneNumber: contactDb,
-                    age: ageDb,
-                    firstName: nameDb,
+                    firstName: name,
+                    age,
+                    phoneNumber,
                     //lastName: Lname,
                     //email: email,
                     //careerFocus: career
@@ -85,10 +79,13 @@ document.addEventListener('DOMContentLoaded', function(){
                     },
                     body: JSON.stringify({dataToSend})
                 })
-                .then(res => res.json);
-
-                console.log(dataToSend);
-            }
+    
+    
+try{const newUser = await response.json();
+    console.log('New user created:', newUser);
+  } catch (error) {
+    console.error('Error creating user:', error);
+  }
         
 
             // Switch page view
@@ -97,3 +94,4 @@ document.addEventListener('DOMContentLoaded', function(){
         }
        
 
+    }
