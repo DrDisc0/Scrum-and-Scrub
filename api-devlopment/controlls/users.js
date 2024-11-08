@@ -1,42 +1,41 @@
 import { v4 as uuidv4 } from 'uuid';
-//import db from '../server/db_connections.js'
-import { getPersons, getPerson, createPerson} from '../server/db_connections.js';
-export const getUser = (req,res) =>{
-    const { id } = req.params;
-    const foundUser = users.find((user) => user.id == id);
-    res.send(foundUser);
-}
+import { getPerson, createPerson} from '../server/db_connections.js';
 
-export const getUsers = async (req,res)=>{
-    try {
-      const results = getPersons();
-      const result = ('workingish');
-      res.json(results);
-    } catch (error) {
-      console.error('Error executing query:', error);
+export const getUser = (req, res) => {
+  const { id } = req.params;
+  getPerson(id)
+    .then(user => res.send(user))
+    .catch(error => {
+      console.error('Error getting user:', error);
       res.status(500).json({ error: 'Internal server error' });
-    }
-    /*console.log(users);
-    res.send(users);*/
+    });
+};
+
+export const getUsers = async (req, res) => {
+  try {
+    // Call getPerson with appropriate identifier (if needed)
+    const users = await getPerson(/* identifier */);
+    res.json(users);
+  } catch (error) {
+    console.error('Error executing query:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
+};
     
 
 
 export const createUser = async (req, res) => {
-        const {firstName, lastName, phoneNumber, email, careerFocus, age} = req.body;
-        try {
-          const results = createPerson(firstName, lastName, phoneNumber, email, careerFocus, age);
-          res.json(results);
-        } catch (err) {
-          console.error(err);
-          res.status(500).json({ error: 'Error creating person' });
-        }
-        /*const user = req.body;
-    users.push({ ...user, id:uuidv4()});
-    res.send(`User with name ${user.name} added to database`);*/
-      }
-    
+  const { firstName, lastName, phoneNumber, email, careerFocus, age } = req.body;
 
+  try {
+    // Use createPerson to create a new record in the database
+    const newPerson = await createPerson(firstName, lastName, phoneNumber, email, careerFocus, age);
+    res.json(newPerson);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error creating person' });
+  }
+};
 
 
 
