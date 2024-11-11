@@ -1,0 +1,134 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+
+public class App {
+    private static final String FILE_PATH = "users.txt";
+    private static Map<String, String> users = new HashMap<>();
+    private static boolean isLoggedIn = false;
+    private static String currentUser = null;
+
+    public static void main(String[] args) throws IOException {
+        loadUsers();
+        SwingUtilities.invokeLater(App::createAndShowGUI);
+    }
+
+    private static void createAndShowGUI() {
+        JFrame frame = new JFrame("User Management");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(6, 1));
+
+        JButton registerButton = new JButton("Register");
+        JButton loginButton = new JButton("Login");
+        JButton forgetPasswordButton = new JButton("Forget Password");
+        JButton logoutButton = new JButton("Logout");
+        JButton exitButton = new JButton("Exit");
+
+        panel.add(registerButton);
+        panel.add(loginButton);
+        panel.add(forgetPasswordButton);
+        panel.add(logoutButton);
+        panel.add(exitButton);
+
+        frame.add(panel);
+        frame.setVisible(true);
+
+        registerButton.addActionListener(e -> register());
+        loginButton.addActionListener(e -> login());
+        forgetPasswordButton.addActionListener(e -> forgetPassword());
+        logoutButton.addActionListener(e -> logout());
+        exitButton.addActionListener(e -> {
+            try {
+                saveUsers();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            System.exit(0);
+        });
+    }
+
+    private static void register() {
+        if (!isLoggedIn) {
+            String username = JOptionPane.showInputDialog("Enter username:");
+            String password = JOptionPane.showInputDialog("Enter password:");
+            if (username != null && password != null && !username.isEmpty() && !password.isEmpty()) {
+                users.put(username, password);
+                JOptionPane.showMessageDialog(null, "User registered successfully.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Username and password cannot be empty.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "You are already logged in.");
+        }
+    }
+
+    private static void login() {
+        if (!isLoggedIn) {
+            String username = JOptionPane.showInputDialog("Enter username:");
+            String password = JOptionPane.showInputDialog("Enter password:");
+            if (users.containsKey(username) && users.get(username).equals(password)) {
+                isLoggedIn = true;
+                currentUser = username;
+                JOptionPane.showMessageDialog(null, "Login successful.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid username or password.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "You are already logged in.");
+        }
+    }
+
+    private static void forgetPassword() {
+        String username = JOptionPane.showInputDialog("Enter username:");
+        if (users.containsKey(username)) {
+            String newPassword = JOptionPane.showInputDialog("Enter new password:");
+            if (newPassword != null && !newPassword.isEmpty()) {
+                users.put(username, newPassword);
+                JOptionPane.showMessageDialog(null, "Password reset successful.");
+            } else {
+                JOptionPane.showMessageDialog(null, "New password cannot be empty.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Username not found.");
+        }
+    }
+
+    private static void logout() {
+        if (isLoggedIn) {
+            isLoggedIn = false;
+            currentUser = null;
+            JOptionPane.showMessageDialog(null, "Logged out.");
+        } else {
+            JOptionPane.showMessageDialog(null, "You are not logged in.");
+        }
+    }
+
+    private static void loadUsers() throws IOException {
+        File file = new File(FILE_PATH);
+        if (file.exists()) {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(":");
+                if (parts.length == 2) {
+                    users.put(parts[0], parts[1]);
+                }
+            }
+            reader.close();
+        }
+    }
+
+    private static void saveUsers() throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH));
+        for (Map.Entry<String, String> entry : users.entrySet()) {
+            writer.write(entry.getKey() + ":" + entry.getValue());
+            writer.newLine();
+        }
+        writer.close();
+    }
+}
