@@ -1,53 +1,113 @@
-/* export.component.css - Styling for Export Page */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8; /* Light background */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header styles */
+header {
+    background: #007bff; /* Primary color for header */
+    color: white;
+    padding: 40px 0; /* Spacious padding */
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+}
+
+/* Center main content with space for footer */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
 
 /* Export section styling */
-section {
-    max-width: 600px; /* Limit the width for better readability */
-    margin: auto; /* Center the section */
-    background: white; /* White background for the section */
-    padding: 30px; /* Padding around the section */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
-    text-align: center; /* Center-align text */
+.export-section {
+    max-width: 600px; /* Limit width for readability */
+    width: 100%;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px; /* Softer corners */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    text-align: center;
+    transition: transform 0.3s;
 }
 
-/* Heading styles */
-h2 {
-    color: #333; /* Dark text color for headings */
-    margin-bottom: 10px; /* Space below heading */
+.export-section:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
-/* Paragraph styles */
-p {
-    margin-bottom: 20px; /* Space below paragraph */
+.export-section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-/* Button styles */
+.export-section p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Button container styles */
 .export-options {
     display: flex;
-    justify-content: center; /* Center buttons */
+    justify-content: space-between;
     gap: 20px; /* Space between buttons */
+    margin-top: 20px;
 }
 
+/* Button styling */
 button {
-    padding: 15px 30px; /* More padding for buttons */
-    background-color: #007bff; /* Button background color */
-    color: white; /* Text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-    font-size: 16px; /* Slightly larger font */
+    flex: 1;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Softer corners */
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-    transform: translateY(-2px); /* Subtle lift effect on hover */
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Subtle lift on hover */
 }
 
-/* Status message styles */
+button:active {
+    transform: translateY(0); /* Return to original position on click */
+}
+
+/* Status message styling */
 #export-status {
-    margin-top: 20px; /* Space above status message */
-    font-weight: bold; /* Bold text */
-    color: #333; /* Dark color for visibility */
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Footer styles */
+footer {
+    background-color: #e9ecef;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #6c757d;
+    width: 100%;
 }

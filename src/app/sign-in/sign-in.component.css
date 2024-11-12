@@ -1,84 +1,144 @@
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9; /* Light background for contrast */
+/* Basic Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Full-Height Container */
+/* Body Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #e9ecef;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Center main content with space for footer */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Container for the form and additional links */
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
-  padding: 20px;
+  max-width: 400px;
+  width: 100%;
 }
 
 /* Form Styling */
 form {
   width: 100%;
-  max-width: 400px; /* Limit width */
   background-color: #ffffff;
-  padding: 30px; /* Increased padding for better spacing */
-  border-radius: 10px; /* Softer corners */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+  box-sizing: border-box;
 }
 
-/* Header */
+form:hover {
+  transform: translateY(-3px);
+}
+
+/* Form Header */
 h2 {
-  text-align: center;
+  font-size: 24px;
   color: #333;
-  margin-bottom: 20px; /* Space below heading */
+  margin-bottom: 20px;
 }
 
 /* Input Fields */
 .form-group {
-  margin-bottom: 15px; /* Space between fields */
-  display: flex; /* Use flexbox for alignment */
-  justify-content: center; /* Center items horizontally */
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 input[type="text"],
-input[type="email"],
 input[type="password"] {
-  width: 100%; /* Full width */
-  max-width: 100%; /* Ensure it doesn't exceed the container */
-  padding: 15px; /* Increased padding for comfort */
-  border: 1px solid #ccc;
-  border-radius: 5px; /* Softer corners */
-  transition: border 0.3s; /* Smooth transition for border color */
-  box-sizing: border-box; /* Include padding in width calculations */
+  width: 100%;
+  padding: 12px 15px; /* Center padding for input fields */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  background-color: #f8f9fa;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
 }
 
 input[type="text"]:focus,
-input[type="email"]:focus,
 input[type="password"]:focus {
-  border-color: #007bff; /* Highlight on focus */
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  background-color: #ffffff;
 }
 
-/* Button */
+/* Button Styling */
 button {
   width: 100%;
   padding: 15px;
-  background-color: #007bff; /* Primary color */
+  background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px; /* Softer corners */
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px; /* Larger font size */
-  transition: background-color 0.3s; /* Smooth transition for hover */
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* New Sign-Up Link Styling */
+.signup-link {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+}
+
+.signup-link a {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.signup-link a:hover {
+  color: #0056b3;
 }
 
 /* Footer */
-.footer {
+footer {
+  background-color: #e9ecef;
+  padding: 15px 0;
   text-align: center;
-  margin-top: 20px; /* Space above footer */
-  color: #777;
-  font-size: 14px; /* Smaller font for footer */
+  font-size: 14px;
+  color: #6c757d;
+  width: 100%;
 }

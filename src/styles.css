@@ -1,6 +1,4 @@
-/* styles.css - Global Styling for Index Page */
-
-/* Basic CSS reset */
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,65 +7,86 @@
 
 /* Body styles */
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f4; /* Light background for better contrast */
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa; /* Light gray for a professional look */
   color: #333;
-  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Header styles */
 header {
   background: #007bff; /* Primary color for header */
   color: white;
-  padding: 30px 0; /* Increased padding for a more spacious look */
+  padding: 40px 0; /* Spacious padding for the header */
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
 }
 
-/* Main section styles */
+header h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+header p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Center main content with space for footer */
 main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
 }
 
 /* Landing section styles */
 .landing-section {
-  max-width: 600px; /* Limit the width for better readability */
-  margin: auto; /* Center the section */
-  background: white;
-  padding: 30px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
-  text-align: center; /* Center align text */
+  max-width: 600px; /* Limit the width for readability */
+  width: 100%;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  text-align: center; /* Center-align text */
+  transition: transform 0.3s;
+}
+
+.landing-section:hover {
+  transform: translateY(-5px); /* Subtle lift effect on hover */
+}
+
+.landing-section h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 /* Button container styles */
 .button-container {
   display: flex;
-  justify-content: space-around; /* Evenly space the buttons */
-  margin-top: 20px;
+  justify-content: space-between; /* Evenly space the buttons */
+  margin-top: 30px;
+  gap: 20px; /* Space between buttons */
 }
 
 /* Button styles */
 button {
-  padding: 15px 30px; /* More padding for buttons */
+  flex: 1;
+  padding: 15px;
   background-color: #007bff; /* Button background color */
-  color: white; /* Text color */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Softer corners */
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
   transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-  font-size: 16px; /* Slightly larger font */
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-  transform: translateY(-2px); /* Subtle lift effect on hover */
-}
-
-/* Footer styles */
-footer {
-  text-align: center;
-  margin-top: 20px;
-  padding: 10px 0;
-  background: #e9ecef; /* Light footer background */
-}
+  background-color

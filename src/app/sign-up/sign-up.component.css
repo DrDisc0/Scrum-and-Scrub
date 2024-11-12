@@ -1,85 +1,146 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9; /* Light background for contrast */
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9ecef; /* Light gray background */
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 /* Full-Height Container */
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    justify-content: center;
     padding: 20px;
+    margin-top: -50px; /* Lift container slightly */
 }
 
-/* Form Styling */
+/* Centering main section and setting space for footer */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Signup Form Styling */
 form {
     width: 100%;
-    max-width: 400px; /* Limit width */
+    max-width: 400px;
     background-color: #ffffff;
-    padding: 30px; /* Increased padding for better spacing */
-    border-radius: 10px; /* Softer corners */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    transition: transform 0.3s;
+    box-sizing: border-box; /* Ensures padding is included in width calculations */
+}
+
+form:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
 }
 
 /* Header */
 h2 {
     text-align: center;
     color: #333;
-    margin-bottom: 20px; /* Space below heading */
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 /* Input Fields */
 .form-group {
-    margin-bottom: 15px; /* Space between fields */
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center items horizontally */
+    margin-bottom: 20px;
+    width: 100%; /* Ensures form groups are full width */
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%; /* Full width */
-    max-width: 100%; /* Ensure it doesn't exceed the container */
-    padding: 15px; /* Increased padding for comfort */
-    border: 1px solid #ccc;
-    border-radius: 5px; /* Softer corners */
-    transition: border 0.3s; /* Smooth transition for border color */
-    box-sizing: border-box; /* Include padding in width calculations */
+    padding: 12px 15px; /* Padding for comfort */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+    outline: none;
+    background-color: #f8f9fa;
+    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #007bff; /* Highlight on focus */
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    background-color: #ffffff;
 }
-
 
 /* Button */
 button {
     width: 100%;
     padding: 15px;
-    background-color: #28a745; /* Success color */
+    background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 5px; /* Softer corners */
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px; /* Larger font size */
-    transition: background-color 0.3s; /* Smooth transition for hover */
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #218838; /* Darker shade on hover */
+    background-color: #218838;
+    transform: translateY(-2px); /* Lift effect */
+}
+
+button:active {
+    transform: translateY(0); /* Return on click */
+}
+
+/* Link Styling */
+.signup-section p {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+}
+
+.signup-section p a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.signup-section p a:hover {
+    color: #0056b3;
 }
 
 /* Footer */
-.footer {
+footer {
     text-align: center;
-    margin-top: 20px; /* Space above footer */
-    color: #777;
-    font-size: 14px; /* Smaller font for footer */
+    color: #6c757d;
+    font-size: 14px;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
