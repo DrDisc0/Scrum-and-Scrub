@@ -1,0 +1,135 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class App {
+    public static void main(String[] args) {
+        String[] command = {"htmldoc", "-f","index.pdf", "--webpage", "index.html"};
+        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        try {
+            Process process = processBuilder.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            int exitCode = process.waitFor();
+            System.out.println("\nProcess exited with code: " + exitCode);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+/*import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpExchange;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class App {
+
+    public static void main(String[] args) throws IOException {
+        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+        ExecutorService executor = Executors.newFixedThreadPool(10); // Create a thread pool
+        
+        server.createContext("/hello", new HelloWorldHandler()); // Add /hello endpoint
+        server.createContext("/api/export-pdf", new ExportPdfHandler(executor)); // Existing /api/export-pdf endpoint
+        
+        server.setExecutor(executor); // Use the thread pool executor
+        server.start();
+        System.out.println("Server started on port 8080");
+    }
+
+    // Handler for the /hello endpoint
+    static class HelloWorldHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            String response = "Hello, World!";
+            exchange.sendResponseHeaders(200, response.length());
+            OutputStream os = exchange.getResponseBody();
+            os.write(response.getBytes());
+            os.close();
+        }
+    }
+    
+    // Placeholder for the ExportPdfHandler class
+    static class ExportPdfHandler implements HttpHandler {
+        private final ExecutorService executor;
+        
+        public ExportPdfHandler(ExecutorService executor) {
+            this.executor = executor;
+        }
+        
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            // Handle PDF export logic here
+            ProcessBuilderExample obj = new ProcessBuilderExample("index.html");
+            String response = "PDF export functionality";
+            exchange.sendResponseHeaders(200, response.length());
+            OutputStream os = exchange.getResponseBody();
+            os.write(response.getBytes());
+            os.close();
+        }
+        class ProcessBuilderExample {
+    
+    
+    public ProcessBuilderExample(String _fileName) {
+        // Define the command and its arguments
+        String fileName = _fileName; //"index.html";
+        String[] command = {"htmldoc", "-f", "index.pdf", "--webpage", fileName};
+        
+        // Create the ProcessBuilder with the command
+        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        
+        try {
+            // Start the process
+            Process process = processBuilder.start();
+            
+            // Capture the output of the command
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            
+            // Wait for the process to finish and get the exit code
+            int exitCode = process.waitFor();
+            System.out.println("\nProcess exited with code: " + exitCode);
+            
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+    }
+}
+
+/*import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class App {
+    public static void main(String[] args) {
+        String[] command = {"touch", "sp.pdf"};
+        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        try {
+            Process process = processBuilder.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            int exitCode = process.waitFor();
+            System.out.println("\nProcess exited with code: " + exitCode);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
