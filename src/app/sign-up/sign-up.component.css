@@ -1,146 +1,173 @@
-/* General Styles */
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #e9ecef; /* Light gray background */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-color: #e9ecef;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* Header Styles */
 header {
-    background-color: #007bff; /* Primary color */
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-/* Full-Height Container */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    margin-top: -50px; /* Lift container slightly */
-}
-
-/* Centering main section and setting space for footer */
+/* Center main content with space for footer */
 main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* Signup Form Styling */
+/* Container for the form and additional links */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Form Styling */
 form {
-    width: 100%;
-    max-width: 400px;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* Soft shadow */
-    transition: transform 0.3s;
-    box-sizing: border-box; /* Ensures padding is included in width calculations */
+  width: 100%;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+  box-sizing: border-box;
 }
 
 form:hover {
-    transform: translateY(-5px); /* Slight lift effect on hover */
+  transform: translateY(-3px);
 }
 
-/* Header */
+/* Back Button Styles */
+.back-button-container {
+  text-align: left;
+  margin-bottom: 20px; /* Add spacing below the back button */
+}
+
+.back-button {
+  padding: 10px 20px;
+  background-color: #6c757d; /* Neutral color for back button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+/* Form Header */
 h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 /* Input Fields */
 .form-group {
-    margin-bottom: 20px;
-    width: 100%; /* Ensures form groups are full width */
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 100%; /* Full width */
-    padding: 12px 15px; /* Padding for comfort */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s;
-    outline: none;
-    background-color: #f8f9fa;
-    box-sizing: border-box; /* Ensures padding is included in width */
+  width: 100%;
+  padding: 12px 15px; /* Center padding for input fields */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  background-color: #f8f9fa;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-    background-color: #ffffff;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  background-color: #ffffff;
 }
 
-/* Button */
+/* Button Styling */
 button {
-    width: 100%;
-    padding: 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-    margin-top: 10px;
+  width: 100%;
+  padding: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-    background-color: #218838;
-    transform: translateY(-2px); /* Lift effect */
+  background-color: #218838;
+  transform: translateY(-2px);
 }
 
 button:active {
-    transform: translateY(0); /* Return on click */
+  transform: translateY(0);
 }
 
-/* Link Styling */
-.signup-section p {
-    text-align: center;
-    font-size: 16px;
-    color: #555;
+/* Login Link Styling */
+.login-link {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555;
+  text-align: center;
 }
 
-.signup-section p a {
-    color: #007bff;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s;
+.login-link a {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.signup-section p a:hover {
-    color: #0056b3;
+.login-link a:hover {
+  color: #0056b3;
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    color: #6c757d;
-    font-size: 14px;
-    padding: 10px 0;
-    width: 100%;
-    background-color: #f8f9fa;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  background-color: #e9ecef;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+  width: 100%;
 }

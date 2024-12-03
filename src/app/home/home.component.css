@@ -1,106 +1,134 @@
 /* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Body styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f4f8; /* Light background for contrast */
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f4f8; /* Light background for contrast */
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Header styles */
 header {
-    background: #007bff; /* Primary color for header */
-    color: white;
-    padding: 40px 0; /* Spacious padding */
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow */
+  background: #007bff; /* Primary color for header */
+  color: white;
+  padding: 40px 0; /* Spacious padding */
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow */
+}
+
+/* Back Button Styles */
+.back-button-container {
+  text-align: left;
+  margin: 20px 0 30px 20px; /* Positioned at the top-left corner with spacing */
+}
+
+.back-button {
+  padding: 10px 20px;
+  background-color: #6c757d; /* Neutral color for back button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.back-button:active {
+  transform: translateY(0);
 }
 
 /* Center main content with space for footer */
 main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: column;
 }
 
 /* Dashboard section styling */
 .dashboard {
-    max-width: 600px; /* Limit the width for readability */
-    width: 100%;
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 12px; /* Softer corners */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    text-align: center;
-    transition: transform 0.3s;
+  max-width: 600px; /* Limit the width for readability */
+  width: 100%;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px; /* Softer corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  text-align: center;
+  transition: transform 0.3s;
 }
 
 .dashboard:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+  transform: translateY(-5px); /* Lift effect on hover */
 }
 
 .dashboard h2 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-    font-weight: bold;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .dashboard p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 30px;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
 }
 
 /* Button container styles */
 .button-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 /* Button styling */
 .action-button {
-    flex: 1;
-    padding: 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px; /* Softer corners */
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  flex: 1;
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Softer corners */
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .action-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px); /* Subtle lift on hover */
+  background-color: #0056b3;
+  transform: translateY(-3px); /* Subtle lift on hover */
 }
 
 .action-button:active {
-    transform: translateY(0); /* Return on click */
+  transform: translateY(0); /* Return on click */
 }
 
 /* Footer styles */
 footer {
-    background-color: #e9ecef;
-    padding: 15px 0;
-    text-align: center;
-    font-size: 14px;
-    color: #6c757d;
-    width: 100%;
+  background-color: #e9ecef;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+  width: 100%;
 }

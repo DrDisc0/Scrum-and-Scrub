@@ -7,7 +7,7 @@
 
 /* Body Styles */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #e9ecef;
   color: #333;
   display: flex;
@@ -140,5 +140,38 @@ footer {
   text-align: center;
   font-size: 14px;
   color: #6c757d;
+  width: 100%;
+}
+
+/* Back Button Styles */
+.back-button-container {
+  text-align: left;
+  margin-bottom: 20px; /* Add spacing below the back button */
+}
+
+.back-button {
+  padding: 10px 20px;
+  background-color: #6c757d; /* Neutral color for back button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
   width: 100%;
 }
