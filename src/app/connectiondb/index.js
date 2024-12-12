@@ -3,6 +3,7 @@ import express from "express"; // Import Express framework
 import mongoose from "mongoose"; // Import Mongoose for MongoDB interactions
 import bodyParser from "body-parser"; // Import Body-parser for parsing request bodies
 import dotenv from "dotenv"; // Import dotenv for loading environment variables
+import {MongoClient, ServerApiVersion} from 'mongodb';
 
 import route from "./routes/usersRoutes.js";
 
@@ -21,10 +22,31 @@ const PORT = process.env.PORT || 5000;
 // Define MongoDB connection URL from environment variables
 const MONGOURL = process.env.MONGO_URL;
 
+const client = new MongoClient(process.env.MONGO_URL, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("Resume").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+
 // Connect to MongoDB database
 mongoose
   .connect(MONGOURL)
   .then(() => {
+    run().catch(console.dir);
     console.log("Database connected successfully."); // Log successful database connection
     // Start server on specified port
     app.listen(PORT, () => {
