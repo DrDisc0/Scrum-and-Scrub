@@ -1,10 +1,10 @@
 {
-  "name": "testfolder",
+  "name": "connectiondb",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "indexDb.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon indexDb.js"
   },
   "keywords": [],
   "author": "",

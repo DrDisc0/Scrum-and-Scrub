@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 })
     
     
-try{const newUser = await response.json();
+try{const newUser = response.json();
     console.log('New user created:', newUser);
     // ... handle successful creation
   } catch (error) {

@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import sequel from 'sequelize';
+import sequel from 'serialize-javascript';
 import { DataTypes } from 'sequelize';
 import dotenv from '@dotenvx/dotenvx';
 dotenv.config();

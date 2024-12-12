@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <script type="module" src ="signIn.js" defer></script>
   </head>
   <body>
     <header>
@@ -27,12 +28,12 @@
 
           <h2>Sign In</h2>
           <div class="form-group">
-            <input type="text" placeholder="Username" required />
+            <input type="text"  id="email" placeholder="Username" required />
           </div>
           <div class="form-group">
-            <input type="password" placeholder="Password" required />
+            <input type="password" id="password" placeholder="Password" required />
           </div>
-          <button type="submit">Sign In</button>
+          <button id="loginbtn" type="submit">Sign In</button>
           <div class="footer">
             <p>&copy; 2024 ProFile Application. All rights reserved.</p>
           </div>
@@ -56,8 +57,12 @@
         .addEventListener("submit", function (event) {
           event.preventDefault(); // Prevent actual form submission
 
+          const email = document.getElementById("email").value;
+
           // Redirect to home page
           window.location.href = "../home/home.component.html";
+
+          localStorage.setItem("email", email);  
         });
 
       // Navigate back to the index page

@@ -28,7 +28,7 @@
     <!-- User Information Input Form -->
     <section id="creationFormSection" class="content-section">
       <h2>Portfolio Details</h2>
-      <form id="creationForm">
+      <form id="creationForm" action="">
         <div class="mb-3">
           <label for="portfolioName" class="form-label">Portfolio Name</label>
           <input
@@ -148,13 +148,14 @@
       }
 
       // Submit and display the portfolio
-      function submitPortfolio() {
+      async function submitPortfolio() {
         // Retrieve values from the form
         const portfolioName =
           document.getElementById("portfolioName").value || "N/A";
         const portfolioDescription =
           document.getElementById("description").value || "N/A";
 
+        const sections = [];
         // Display main portfolio information
         document.getElementById("portfolioDisplayName").textContent =
           portfolioName;
@@ -172,6 +173,8 @@
             const label = inputField.getAttribute("data-label");
             const value = inputField.value || "N/A";
 
+            sections.push({ label, value }); 
+
             const sectionCard = document.createElement("div");
             sectionCard.classList.add("card", "p-3", "text-start");
             sectionCard.innerHTML = `
@@ -183,6 +186,41 @@
             sectionsContainer.appendChild(sectionCard);
           }
         }
+
+        const email = localStorage.getItem("email"); 
+        const name = localStorage.getItem("name");  
+
+        const userData = {  
+   name: name,  
+   email: email, // Replace with actual email  
+   portFoNam: portfolioName,  
+   descript: portfolioDescription,  
+   experi: sections.find((section) => section.label === "Experience")?.value || "",  
+   skill: sections.find((section) => section.label === "Skills")?.value || "",  
+   certifi: sections.find((section) => section.label === "Certifications")?.value || "",  
+   projects: sections.find((section) => section.label === "Projects")?.value || "",  
+  };  
+  
+  try {   
+  const response = await fetch("http://localhost:5000/api/user", {   
+   method: "POST",   
+   headers: {   
+    "Content-Type": "application/json",   
+   },   
+   body: JSON.stringify(userData),   
+  });
+  
+  if (!response.ok) {  
+    throw new Error(`HTTP error! status: ${response.status}`);  
+   }  
+   
+  const data = await response.json();   
+  console.log(data);   
+  } catch (error) {   
+  console.log(error);   
+  }
+
+
 
         // Switch page view
         document.getElementById("creationFormSection").style.display = "none";
